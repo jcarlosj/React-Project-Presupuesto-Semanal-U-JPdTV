@@ -53,6 +53,11 @@ button {
   border: 1px solid transparent;
   border-radius: .25rem;
 }
+.alert-primary {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+}
 .alert-danger {
   color: #721c24;
   background-color: #f8d7da;
