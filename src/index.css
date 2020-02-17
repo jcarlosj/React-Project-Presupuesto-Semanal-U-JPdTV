@@ -14,8 +14,11 @@ header {
 header > h1 {
   color: white;
 }
+.form-expenses > h3 {
+  color: #33C3F0;
+}
 
-h1, h2 {
+h1, h2, h3 {
   margin: .3rem 0;
   padding: 0;
   text-align: center;

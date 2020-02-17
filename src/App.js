@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Question from './components/Question';
+import Expenses from './components/Expenses';
 
 function App() {
 
@@ -18,6 +19,12 @@ function App() {
                     budget={ setBudget }
                     availableBudget={ setAvailableBudget }
                 />
+                <div className="row">
+                    <div className="one-half column">
+                        <Expenses />
+                    </div>
+                    <div className="one-half column">2</div>
+                </div>
             </div>
         </header>
     </div>
