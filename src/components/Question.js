@@ -2,8 +2,10 @@ import React, { Fragment, useState } from 'react';
 
 const Question = () => {
 
-    /** State: Presupuesto */
-    const [ statusBudget, setBuget ] = useState( 0 );
+    /** State */
+    const [ statusBudget, setBuget ] = useState( 0 ),       /**: Presupuesto */
+          [ statusError, setError ] = useState( false );    /**: Error */
+
 
     /** Manejador de Cambios el State: Define Presupuesto (Cuando el usuario escribe en un campo del formulario) */
     const handleChange = ( event ) => {
@@ -16,11 +18,23 @@ const Question = () => {
         event .preventDefault();        // Evita el envio por el QueryString por el metodo GET
 
         console .log( 'Envia', statusBudget );
+
+        /** Evalua si el valor del presupuesto NO es valido */
+        if( statusBudget < 1 || isNaN( statusBudget ) ) {
+            setError( true );          // Actualiza State
+            return;
+        }
+        setError( false );
+
     }
 
     return (
         <Fragment>
             <h2>Ingresa tú presupuesto</h2>
+            {   statusError 
+                    ?   <p className="alert alert-danger error">Debes ingresar un presupuesto valido</p>
+                    :   null
+            }
             <form
                 onSubmit={ submitAddBudget }
             >
