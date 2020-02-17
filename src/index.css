@@ -14,7 +14,8 @@ header {
 header > h1 {
   color: white;
 }
-.form-expenses > h3 {
+.expenses-form > h3,
+.expenses-list > h3 {
   color: #33C3F0;
 }
 

@@ -41,7 +41,7 @@ const ExpenseForm = ({ addExpense }) => {      // Destructuring props
 
     return (
         <form 
-            className="form-expenses"
+            className="expenses-form"
             onSubmit={ submitAddExpense }
         >
             <h3>Registra tu gasto</h3>
