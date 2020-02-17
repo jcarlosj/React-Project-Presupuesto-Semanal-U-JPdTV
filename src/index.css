@@ -58,3 +58,31 @@ button {
   background-color: #f8d7da;
   border-color: #f5c6cb;
 }
+
+.field {
+  margin-bottom: 2rem;
+}
+
+.expenses-list {
+  margin-bottom: 2rem;
+}
+.expenses-list li{
+  list-style: none;
+  margin-bottom: 0rem;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 1rem 0;
+}
+.expenses-list li:last-of-type {
+  margin-bottom: 0!important;
+}
+.expenses-list li p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:0;
+}
+.expenses-list li p .spent {
+  background-color: #004085;
+  padding: 1rem;
+  color:white;
+}
