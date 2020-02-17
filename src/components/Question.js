@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import ErrorMessage from './ErrorMessage';
 
 const Question = () => {
 
@@ -32,7 +33,7 @@ const Question = () => {
         <Fragment>
             <h2>Ingresa tú presupuesto</h2>
             {   statusError 
-                    ?   <p className="alert alert-danger error">Debes ingresar un presupuesto valido</p>
+                    ?   <ErrorMessage message="Debes ingresar un presupuesto valido" />
                     :   null
             }
             <form
