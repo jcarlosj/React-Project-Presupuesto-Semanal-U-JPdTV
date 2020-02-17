@@ -7,7 +7,19 @@ function App() {
     /** State */
     const [ stateBudget, setBudget ] = useState( 0 ),                       // : Presupuesto 
           [ stateAvailableBudget, setAvailableBudget ] = useState( 0 ),     // : Presupuesto Disponible 
-          [ stateShowQuestion, setShowQuestion ] = useState( true );        // : Mostrar/Ocultar Componente Question
+          [ stateShowQuestion, setShowQuestion ] = useState( true ),        // : Mostrar/Ocultar Componente Question
+          [ stateExpenses, setExpenses ] = useState([]);                    // : Listado de Gastos
+
+    /** Agrega nuevo gasto */   
+    const addExpense = ( expense ) => {
+        console .log( 'Gasto', expense );
+
+        /** Establece cambios en el State es decir. Asigna nuevo gasto a listado de gastos */
+        setExpenses([
+            ...stateExpenses,       // Spread
+            expense
+        ]);
+    }
 
   return (
     <div className="container">
@@ -25,7 +37,9 @@ function App() {
                     : ( // Return Implicito
                         <div className="row">
                             <div className="one-half column">
-                                <Expenses />
+                                <Expenses
+                                    addExpense={ addExpense }
+                                />
                             </div>
                             <div className="one-half column">2</div>
                         </div>

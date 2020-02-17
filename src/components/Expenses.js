@@ -3,7 +3,7 @@ import ErrorMessage from './ErrorMessage';
 
 import shortid from 'shortid';
 
-const Expenses = () => {
+const Expenses = ({ addExpense }) => {      // Destructuring props
 
     /** State: Podria definirse como un objeto que contenga ambos valores] */
     const [ stateDescription, setDescription ] = useState( '' ),        // : Descripcion del Gasto
@@ -30,7 +30,8 @@ const Expenses = () => {
             amount: stateAmount
         }
 
-        console .log( 'Gasto', expense );
+        /** Agrega nuevo gasto */
+        addExpense( expense );
 
     }
 
