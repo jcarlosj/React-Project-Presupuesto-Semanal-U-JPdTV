@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
+import ErrorMessage from './ErrorMessage';
 
 const Expenses = () => {
 
-    /** State: Podr[ia definirse como un objeto que contenga ambos valores] */
-    const [ stateDescription, setDescription ] = useState( '' ),        // Descripcion del Gasto
-          [ stateAmount, setAmount ] = useState( 0 );                   // Monto del Gasto
+    /** State: Podria definirse como un objeto que contenga ambos valores] */
+    const [ stateDescription, setDescription ] = useState( '' ),        // : Descripcion del Gasto
+          [ stateAmount, setAmount ] = useState( 0 ),                   // : Monto del Gasto
+          [ statusError, setError ] = useState( false );                // : Error 
 
     /** Evento que solicita la cita al hacer click en el formulario */
     const submitAddExpense = ( event ) => {
         event .preventDefault();        // Evita el envio por el QueryString por el metodo GET
 
         console .log( 'Envia', stateDescription, stateAmount );
+
+        /** Evalua si el valor del presupuesto NO es valido */
+        if( stateAmount < 1 || isNaN( stateAmount ) || stateDescription .trim() === '' ) {
+            setError( true );          // Actualiza State
+            return;
+        }
+        setError( false );
 
     }
 
@@ -20,6 +29,10 @@ const Expenses = () => {
             onSubmit={ submitAddExpense }
         >
             <h3>Registra tu gasto</h3>
+            {   statusError 
+                    ?   <ErrorMessage message="Ambos campos son obligatorios, deben ser valores validos" />
+                    :   null
+            }
             <div className="field">
                 <label>Descripción del gasto</label>
                 <input  
