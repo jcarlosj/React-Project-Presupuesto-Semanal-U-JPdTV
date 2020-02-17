@@ -1,17 +1,17 @@
 import React, { Fragment, useState } from 'react';
 import ErrorMessage from './ErrorMessage';
 
-const Question = () => {
+const Question = ({ budget, availableBudget }) => {          // Destructuring props
 
     /** State */
-    const [ statusBudget, setBuget ] = useState( 0 ),       /**: Presupuesto */
-          [ statusError, setError ] = useState( false );    /**: Error */
+    const [ statusBudget, setBudget ] = useState( 0 ),       /**: Presupuesto */
+          [ statusError, setError ] = useState( false );     /**: Error */
 
 
     /** Manejador de Cambios el State: Define Presupuesto (Cuando el usuario escribe en un campo del formulario) */
     const handleChange = ( event ) => {
         console .log( parseInt( event .target .value ) );
-        setBuget( event .target .value );
+        setBudget( event .target .value );
     }
 
     /** Evento que solicita la cita al hacer click en el formulario */
@@ -26,6 +26,10 @@ const Question = () => {
             return;
         }
         setError( false );
+
+        /** Envia el valor del presupuesto al Componente Padre */
+        budget( statusBudget );                 // Presupuesto
+        availableBudget( statusBudget );     // Presupuesto Disponible
 
     }
 
