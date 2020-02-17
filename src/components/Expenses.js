@@ -33,6 +33,10 @@ const Expenses = ({ addExpense }) => {      // Destructuring props
         /** Agrega nuevo gasto */
         addExpense( expense );
 
+        /** Reset Formulario */
+        setDescription( '' );
+        setAmount( 0 );
+
     }
 
     return (
