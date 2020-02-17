@@ -3,7 +3,7 @@ import ErrorMessage from './ErrorMessage';
 
 import shortid from 'shortid';
 
-const Expenses = ({ addExpense }) => {      // Destructuring props
+const ExpenseForm = ({ addExpense }) => {      // Destructuring props
 
     /** State: Podria definirse como un objeto que contenga ambos valores] */
     const [ stateDescription, setDescription ] = useState( '' ),        // : Descripcion del Gasto
@@ -79,4 +79,4 @@ const Expenses = ({ addExpense }) => {      // Destructuring props
     );
 }
 
-export default Expenses;
+export default ExpenseForm;

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import Question from './components/Question';
-import Expenses from './components/Expenses';
+import QuestionForm from './components/QuestionForm';
+import ExpenseForm from './components/ExpenseForm';
 
 function App() {
 
     /** State */
     const [ stateBudget, setBudget ] = useState( 0 ),                       // : Presupuesto 
           [ stateAvailableBudget, setAvailableBudget ] = useState( 0 ),     // : Presupuesto Disponible 
-          [ stateShowQuestion, setShowQuestion ] = useState( true ),        // : Mostrar/Ocultar Componente Question
+          [ stateShowQuestion, setShowQuestion ] = useState( true ),        // : Mostrar/Ocultar Componente QuestionForm
           [ stateExpenses, setExpenses ] = useState([]);                    // : Listado de Gastos
 
     /** Agrega nuevo gasto */   
@@ -28,7 +28,7 @@ function App() {
             <div className="content content-principal">
                 {   stateShowQuestion   // Carga Condicional de Componentes
                     ? ( // Return Implicito
-                        <Question
+                        <QuestionForm
                             budget={ setBudget }
                             availableBudget={ setAvailableBudget }
                             show={ setShowQuestion }
@@ -37,7 +37,7 @@ function App() {
                     : ( // Return Implicito
                         <div className="row">
                             <div className="one-half column">
-                                <Expenses
+                                <ExpenseForm
                                     addExpense={ addExpense }
                                 />
                             </div>

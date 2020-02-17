@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import ErrorMessage from './ErrorMessage';
 
-const Question = ({ budget, availableBudget, show }) => {          // Destructuring props
+const QuestionForm = ({ budget, availableBudget, show }) => {          // Destructuring props
 
     /** State */
     const [ statusBudget, setBudget ] = useState( 0 ),       /**: Presupuesto */
@@ -59,4 +59,4 @@ const Question = ({ budget, availableBudget, show }) => {          // Destructur
     );
 }
 
-export default Question;
+export default QuestionForm;
