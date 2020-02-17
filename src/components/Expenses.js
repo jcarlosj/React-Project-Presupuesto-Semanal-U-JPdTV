@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ErrorMessage from './ErrorMessage';
 
+import shortid from 'shortid';
+
 const Expenses = () => {
 
     /** State: Podria definirse como un objeto que contenga ambos valores] */
@@ -20,6 +22,15 @@ const Expenses = () => {
             return;
         }
         setError( false );
+
+        /** Envia detalles del gasto al Componente Padre */
+        const expense = {
+            id: shortid .generate(),
+            description: stateDescription,
+            amount: stateAmount
+        }
+
+        console .log( 'Gasto', expense );
 
     }
 
