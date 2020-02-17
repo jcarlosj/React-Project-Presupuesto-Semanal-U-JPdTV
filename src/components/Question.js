@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import ErrorMessage from './ErrorMessage';
 
-const Question = ({ budget, availableBudget }) => {          // Destructuring props
+const Question = ({ budget, availableBudget, show }) => {          // Destructuring props
 
     /** State */
     const [ statusBudget, setBudget ] = useState( 0 ),       /**: Presupuesto */
@@ -29,7 +29,8 @@ const Question = ({ budget, availableBudget }) => {          // Destructuring pr
 
         /** Envia el valor del presupuesto al Componente Padre */
         budget( statusBudget );                 // Presupuesto
-        availableBudget( statusBudget );     // Presupuesto Disponible
+        availableBudget( statusBudget );        // Presupuesto Disponible
+        show( false );                          // Oculta componente
 
     }
 
