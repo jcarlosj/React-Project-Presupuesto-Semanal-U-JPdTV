@@ -25,6 +25,7 @@ function App() {
                 stateExpense
             ]);
 
+            /** TO DO: Evitar que siga agregando gastos cuando no hay presupuesto disponible */
             setAvailableBudget( stateAvailableBudget - stateExpense .amount );      // Establece cambios con el calculo del valor disponible
             setNewExpense( false );     // Vuelve la bandera a su estado original
 
@@ -34,7 +35,7 @@ function App() {
             console .groupEnd();
         }
 
-    }, [stateExpense] );
+    }, [ stateExpense, newExpense, stateExpenses, stateAvailableBudget ] );
 
   return (
     <div className="container">

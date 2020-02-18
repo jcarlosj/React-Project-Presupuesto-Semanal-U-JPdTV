@@ -1,5 +1,5 @@
 import React from 'react';
-import ExpenseItem from './ExpenseItem'
+import ExpenseItem from './ExpenseItem';
 
 const ExpenseList = ({ expenses }) => {     // Destructuring props
     return(
