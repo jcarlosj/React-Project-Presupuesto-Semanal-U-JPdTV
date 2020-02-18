@@ -25,6 +25,7 @@ function App() {
                 stateExpense
             ]);
 
+            setAvailableBudget( stateAvailableBudget - stateExpense .amount );      // Establece cambios con el calculo del valor disponible
             setNewExpense( false );     // Vuelve la bandera a su estado original
 
             console .group( 'App:useEffect' );
