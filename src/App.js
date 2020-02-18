@@ -10,24 +10,28 @@ function App() {
     const [ stateBudget, setBudget ] = useState( 0 ),                       // : Presupuesto 
           [ stateAvailableBudget, setAvailableBudget ] = useState( 0 ),     // : Presupuesto Disponible 
           [ stateShowQuestion, setShowQuestion ] = useState( true ),        // : Mostrar/Ocultar Componente QuestionForm
-          [ stateExpenses, setExpenses ] = useState([]),                    // : Listado de Gastos
-          [ stateExpense, setExpense ] = useState({});                      // : Gasto
+          [ stateExpenses, setExpenses ] = useState( [] ),                  // : Listado de Gastos
+          [ stateExpense, setExpense ] = useState( {} ),                    // : Gasto
+          [ newExpense, setNewExpense ] = useState( false );                // : Controla si hubo un nuevo gasto o no
 
     /** Seguimiento al State */
     useEffect( () => {
 
-        /** Establece cambios en el State es decir. Asigna nuevo gasto a listado de gastos */
-        setExpenses([
-            ...stateExpenses,       // Spread
-            stateExpense
-        ]);
+        /** Valida si hay un nuevo gasto */
+        if( newExpense ) {
+            /** Establece cambios en el State es decir. Asigna nuevo gasto a listado de gastos */
+            setExpenses([
+                ...stateExpenses,       // Spread
+                stateExpense
+            ]);
 
-        console .group( 'App:useEffect' );
-        console .log( 'stateExpense', stateExpense );
-        console .log( 'stateExpenses', stateExpenses );
-        console .groupEnd();
+            setNewExpense( false );     // Vuelve la bandera a su estado original
 
-        /** TO DO: Evitar que muestre el primer objeto como vacio ExpenseList [{…}] */
+            console .group( 'App:useEffect' );
+            console .log( 'stateExpense', stateExpense );
+            console .log( 'stateExpenses', stateExpenses );
+            console .groupEnd();
+        }
 
     }, [stateExpense] );
 
@@ -48,6 +52,7 @@ function App() {
                         <div className="row">
                             <div className="one-half column">
                                 <ExpenseForm
+                                    addNewExpense={ setNewExpense }
                                     addExpense={ setExpense }
                                 />
                             </div>

@@ -3,7 +3,7 @@ import ErrorMessage from './ErrorMessage';
 
 import shortid from 'shortid';
 
-const ExpenseForm = ({ addExpense }) => {      // Destructuring props
+const ExpenseForm = ({ addNewExpense, addExpense }) => {      // Destructuring props
 
     /** State: Podria definirse como un objeto que contenga ambos valores] */
     const [ stateDescription, setDescription ] = useState( '' ),        // : Descripcion del Gasto
@@ -31,7 +31,8 @@ const ExpenseForm = ({ addExpense }) => {      // Destructuring props
         }
 
         /** Agrega nuevo gasto */
-        addExpense( expense );
+        addExpense( expense );      // Agrega los detalles del gasto
+        addNewExpense( true );      // Confirma que se ha creado un nuevo gasto
 
         /** Reset Formulario */
         setDescription( '' );
