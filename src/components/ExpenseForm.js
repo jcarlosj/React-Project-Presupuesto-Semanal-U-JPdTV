@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ErrorMessage from './ErrorMessage';
 
+import PropTypes from 'prop-types';
+
 import shortid from 'shortid';
 
 const ExpenseForm = ({ addNewExpense, addExpense }) => {      // Destructuring props
@@ -78,6 +80,12 @@ const ExpenseForm = ({ addNewExpense, addExpense }) => {      // Destructuring p
             />
         </form>
     );
+}
+
+/** Verificación de Tipos usando PropTypes */
+ExpenseForm .propTypes = {
+    addNewExpense: PropTypes .func .isRequired, 
+    addExpense: PropTypes .func .isRequired
 }
 
 export default ExpenseForm;

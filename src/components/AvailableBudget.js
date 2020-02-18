@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
 
+import PropTypes from 'prop-types';
+
 import { checkBudgetHelper } from '../helpers/check-budget.helper';
 
 const AvailableBudget = ({ budget, availableBudget }) => {      // Destructuring props
@@ -13,6 +15,12 @@ const AvailableBudget = ({ budget, availableBudget }) => {      // Destructuring
             </div>
         </Fragment>
     );
+}
+
+/** Verificación de Tipos usando PropTypes */
+AvailableBudget .propTypes = {
+    budget: PropTypes .number .isRequired, 
+    availableBudget: PropTypes .number.isRequired
 }
 
 export default AvailableBudget;

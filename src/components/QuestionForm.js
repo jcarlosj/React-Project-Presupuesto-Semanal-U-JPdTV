@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import ErrorMessage from './ErrorMessage';
 
+import PropTypes from 'prop-types';
+
 const QuestionForm = ({ budget, availableBudget, show }) => {          // Destructuring props
 
     /** State */
@@ -57,6 +59,13 @@ const QuestionForm = ({ budget, availableBudget, show }) => {          // Destru
             </form>
         </Fragment>
     );
+}
+
+/** Verificación de Tipos usando PropTypes */
+QuestionForm .propTypes = {
+    budget: PropTypes .func.isRequired, 
+    availableBudget: PropTypes .func.isRequired, 
+    show: PropTypes .func.isRequired
 }
 
 export default QuestionForm;

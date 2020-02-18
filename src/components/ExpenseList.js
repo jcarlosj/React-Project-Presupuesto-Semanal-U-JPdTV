@@ -1,6 +1,8 @@
 import React from 'react';
 import ExpenseItem from './ExpenseItem';
 
+import PropTypes from 'prop-types';
+
 const ExpenseList = ({ expenses }) => {     // Destructuring props
     return(
         <form className="expenses-list">
@@ -13,6 +15,10 @@ const ExpenseList = ({ expenses }) => {     // Destructuring props
             ))} 
         </form>
     );
+}
+
+ExpenseList .propTypes = {
+    expenses: PropTypes .array .isRequired
 }
 
 export default ExpenseList;
