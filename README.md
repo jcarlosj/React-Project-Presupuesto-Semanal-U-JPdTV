@@ -1,3 +1,6 @@
+# Administra presupuesto gastos semanales
+Este proyecto simula la funcionalidad de administrar gastos semanales haciendo uso de los conceptos como Componentes, Props, State, Hooks (useState, useEffect) y PropTypes de React. (v16.12.0)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
